@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Math_Contest
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,14 +20,14 @@ Partial Class Math_Contest
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Exit_Button = New System.Windows.Forms.Button()
         Me.Summary_Button = New System.Windows.Forms.Button()
         Me.Clear_Button = New System.Windows.Forms.Button()
         Me.Submit_Button = New System.Windows.Forms.Button()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.StudentInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.Grade_Label = New System.Windows.Forms.Label()
         Me.Age_Label = New System.Windows.Forms.Label()
         Me.Name_Label = New System.Windows.Forms.Label()
@@ -47,7 +47,7 @@ Partial Class Math_Contest
         Me.Subtract = New System.Windows.Forms.RadioButton()
         Me.Add = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.StudentInfoGroupBox.SuspendLayout()
         Me.MathValues.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
@@ -115,22 +115,22 @@ Partial Class Math_Contest
         Me.Submit_Button.Text = "Submit"
         Me.Submit_Button.UseVisualStyleBackColor = False
         '
-        'GroupBox2
+        'StudentInfoGroupBox
         '
-        Me.GroupBox2.Controls.Add(Me.Grade_Label)
-        Me.GroupBox2.Controls.Add(Me.Age_Label)
-        Me.GroupBox2.Controls.Add(Me.Name_Label)
-        Me.GroupBox2.Controls.Add(Me.GradeTextbox)
-        Me.GroupBox2.Controls.Add(Me.AgeTextbox)
-        Me.GroupBox2.Controls.Add(Me.NameTextBox)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 15)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(388, 93)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Student Information"
+        Me.StudentInfoGroupBox.Controls.Add(Me.Grade_Label)
+        Me.StudentInfoGroupBox.Controls.Add(Me.Age_Label)
+        Me.StudentInfoGroupBox.Controls.Add(Me.Name_Label)
+        Me.StudentInfoGroupBox.Controls.Add(Me.GradeTextbox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.AgeTextbox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.NameTextBox)
+        Me.StudentInfoGroupBox.Location = New System.Drawing.Point(12, 15)
+        Me.StudentInfoGroupBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.StudentInfoGroupBox.Name = "StudentInfoGroupBox"
+        Me.StudentInfoGroupBox.Padding = New System.Windows.Forms.Padding(2)
+        Me.StudentInfoGroupBox.Size = New System.Drawing.Size(388, 93)
+        Me.StudentInfoGroupBox.TabIndex = 1
+        Me.StudentInfoGroupBox.TabStop = False
+        Me.StudentInfoGroupBox.Text = "Student Information"
         '
         'Grade_Label
         '
@@ -340,14 +340,14 @@ Partial Class Math_Contest
         Me.ClientSize = New System.Drawing.Size(602, 366)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.MathValues)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.StudentInfoGroupBox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Math_Contest"
         Me.Text = "Math Contest"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.StudentInfoGroupBox.ResumeLayout(False)
+        Me.StudentInfoGroupBox.PerformLayout()
         Me.MathValues.ResumeLayout(False)
         Me.MathValues.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -361,7 +361,7 @@ Partial Class Math_Contest
     Friend WithEvents Summary_Button As Button
     Friend WithEvents Clear_Button As Button
     Friend WithEvents Submit_Button As Button
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents StudentInfoGroupBox As GroupBox
     Friend WithEvents MathValues As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Divide As RadioButton

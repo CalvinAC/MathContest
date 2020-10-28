@@ -4,68 +4,85 @@
 'Math Contest
 'https://github.com/CalvinAC/MathContest
 
+Option Strict On
+Option Explicit On
 
 
 Public Class Math_Contest
-    Dim firstNum As Integer
-    Dim secondNum As Integer
-    Dim answer As Integer
     Dim attempts As Integer
     Dim correctAttempts As Integer
 
-
     Private Sub Math_Contest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Add.Checked = True
+        ChecktextBoxes()
+
+        Add.Enabled = False
+        Subtract.Enabled = False
+        Multiply.Enabled = False
+        Divide.Enabled = False
 
     End Sub
 
+    Public Sub ChecktextBoxes() Handles AgeTextbox.Click, GradeTextbox.Click
+
+        If NameTextBox.Text <> "" And AgeTextbox.Text <> "" And AnswerTextbox.Text <> "" And GradeTextbox.Text <> "" Then
+            Submit_Button.Enabled = True
+            Summary_Button.Enabled = True
+        Else
+            Submit_Button.Enabled = False
+            Summary_Button.Enabled = False
+        End If
+    End Sub
+
+    Function RandomizeQuestions() As Action
+        Randomize()
+        FirstNumTextbox.Text = CStr(Int((100 - 0 + 1) * Rnd() + 0))
+        SecondNumTextbox.Text = CStr(Int((100 - 0 + 1) * Rnd() + 0))
+
+    End Function
+
+    Private Sub StudentInfoGroupBox_Leave() Handles StudentInfoGroupBox.Leave
+        Dim ageCheck As Integer
+
+        ageCheck = CShort(CInt(AgeTextbox.Text))
+
+        Select Case ageCheck
+            Case 1 To 6
+                MsgBox("Student not eligible to compete")
+                Add.Enabled = False
+                Subtract.Enabled = False
+                Multiply.Enabled = False
+                Divide.Enabled = False
+            Case 7 To 11
+                Add.Enabled = True
+                Subtract.Enabled = True
+                Multiply.Enabled = True
+                Divide.Enabled = True
+            Case >= 12
+                MsgBox("If you're reading this you're too old")
+                Add.Enabled = False
+                Subtract.Enabled = False
+                Multiply.Enabled = False
+                Divide.Enabled = False
+        End Select
+
+
+    End Sub
 
     Private Sub Submit_Button_Click(sender As Object, e As EventArgs) Handles Submit_Button.Click
         Dim correctAnswer As Integer
         Dim studentAnswer As Integer
 
-        Try
-            studentAnswer = CInt(AnswerTextbox.Text)
-        Catch ex As Exception
-            AnswerTextbox.ResetText()
-            MsgBox("Enter a number value")
-            Exit Sub
-        End Try
-        Summary_Button.Enabled = True
 
         attempts = +1
 
-        If NameTextBox.Text = Nothing Then
-            MsgBox("Please fill out your name")
-        ElseIf AgeTextbox.Text = Nothing Then
-            MsgBox("Please enter your age")
-        ElseIf GradeTextbox.Text = Nothing Then
-            MsgBox("Please enter your grade")
-        ElseIf FirstNumTextbox.Text = Nothing Then
-            MsgBox("Please enter the first value")
-        ElseIf SecondNumTextbox.Text = Nothing Then
-            MsgBox("Please enter the second value")
-        ElseIf AnswerTextbox.Text = answer Then
-            MsgBox("correct")
-        End If
-
-        If Add.Checked = True Then
-            answer = CInt(firstNum) + CInt(secondNum)
-        ElseIf Subtract.Checked = True Then
-            answer = CInt(firstNum) - CInt(secondNum)
-        ElseIf Multiply.Checked = True Then
-            answer = CInt(firstNum) * CInt(secondNum)
-        ElseIf Divide.Checked = True Then
-            answer = CInt(firstNum) / CInt(secondNum)
-
-        End If
 
         If correctAnswer = studentAnswer Then
             correctAttempts = +1
 
             MsgBox("Congrats that is the correct answer")
             AnswerTextbox.ResetText()
-        Else msgBox("Incorrect. The right answer is" & CStr(correctAnswer))
+        Else MsgBox("Incorrect. The right answer is" & CStr(correctAnswer))
             AnswerTextbox.ResetText()
         End If
 
@@ -74,11 +91,18 @@ Public Class Math_Contest
 
     Private Sub Clear_Button_Click(sender As Object, e As EventArgs) Handles Clear_Button.Click
 
-        NameTextBox.Text = ""
-        AgeTextbox.Text = ""
-        GradeTextbox.Text = ""
-        FirstNumTextbox.Text = ""
-        SecondNumTextbox.Text = ""
+        NameTextBox.Clear()
+        AgeTextbox.Clear()
+        GradeTextbox.Clear()
+        FirstNumTextbox.Clear()
+        SecondNumTextbox.Clear()
+        AnswerTextbox.Clear()
+        ChecktextBoxes()
+        StudentInfoGroupBox_Leave()
+        attempts = 0
+        correctAttempts = 0
+
+
 
     End Sub
 
@@ -94,27 +118,12 @@ Public Class Math_Contest
 
 
     End Sub
-
-
-
-    Private Sub FirstNumTextbox_TextChanged(sender As Object, e As EventArgs) Handles FirstNumTextbox.TextChanged
-
-    End Sub
-
-    Private Sub SecondNumTextbox_TextChanged(sender As Object, e As EventArgs) Handles SecondNumTextbox.TextChanged
-
-
-    End Sub
-
     Private Sub GradeTextbox_TextChanged(sender As Object, e As EventArgs) Handles GradeTextbox.TextChanged
         If Me.GradeTextbox.Text <> String.Empty Then
             Submit_Button.Enabled = True
         Else
             Submit_Button.Enabled = False
         End If
-    End Sub
-    Private Sub Exit_Button_Click(sender As Object, e As EventArgs) Handles Exit_Button.Click
-        Me.Close()
     End Sub
 
     Private Sub MathValues_Enter(sender As Object, e As EventArgs) Handles FirstNumTextbox.TextChanged,
@@ -134,4 +143,13 @@ Public Class Math_Contest
             MsgBox(userMessage)
         End If
     End Sub
+
+    Private Sub MathValues_Enter_1(sender As Object, e As EventArgs) Handles MathValues.Enter
+        RandomizeQuestions()
+    End Sub
+    Private Sub Exit_Button_Click(sender As Object, e As EventArgs) Handles Exit_Button.Click
+        Me.Close()
+    End Sub
+
+
 End Class
