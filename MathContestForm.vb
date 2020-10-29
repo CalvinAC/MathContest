@@ -10,12 +10,13 @@ Option Explicit On
 
 Public Class Math_Contest
     Dim attempts As Integer
-    Dim correctAttempts As Integer
+    Dim correctAttempts As Double
 
     Private Sub Math_Contest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Loads preset conditions
         Add.Checked = True
-        ChecktextBoxes()
-
+        Submit_Button.Enabled = False
+        Summary_Button.Enabled = False
         Add.Enabled = False
         Subtract.Enabled = False
         Multiply.Enabled = False
@@ -23,130 +24,144 @@ Public Class Math_Contest
 
     End Sub
 
-    Public Sub ChecktextBoxes() Handles AgeTextbox.Click, GradeTextbox.Click
-
-        If NameTextBox.Text <> "" And AgeTextbox.Text <> "" And AnswerTextbox.Text <> "" And GradeTextbox.Text <> "" Then
-            Submit_Button.Enabled = True
-            Summary_Button.Enabled = True
-        Else
-            Submit_Button.Enabled = False
-            Summary_Button.Enabled = False
-        End If
-    End Sub
-
+    ' Randomizes numbers for the math equation
     Function RandomizeQuestions() As Action
         Randomize()
-        FirstNumTextbox.Text = CStr(Int((100 - 0 + 1) * Rnd() + 0))
-        SecondNumTextbox.Text = CStr(Int((100 - 0 + 1) * Rnd() + 0))
+        FirstNumTextbox.Text = CStr(Int((25 - 0 + 1) * Rnd() + 0))
+        SecondNumTextbox.Text = CStr(Int((25 - 0 + 1) * Rnd() + 0))
 
     End Function
 
-    Private Sub StudentInfoGroupBox_Leave() Handles StudentInfoGroupBox.Leave
+    Function AgeGradeGood() As Boolean
+        Dim goodGrade As Boolean
+        Dim goodAge As Boolean
         Dim ageCheck As Integer
+        Dim gradeCheck As Integer
 
-        ageCheck = CShort(CInt(AgeTextbox.Text))
+        Try
+            ageCheck = CInt(AgeBox.Text)
 
-        Select Case ageCheck
-            Case 1 To 6
-                MsgBox("Student not eligible to compete")
-                Add.Enabled = False
-                Subtract.Enabled = False
-                Multiply.Enabled = False
-                Divide.Enabled = False
-            Case 7 To 11
-                Add.Enabled = True
-                Subtract.Enabled = True
-                Multiply.Enabled = True
-                Divide.Enabled = True
-            Case >= 12
-                MsgBox("If you're reading this you're too old")
-                Add.Enabled = False
-                Subtract.Enabled = False
-                Multiply.Enabled = False
-                Divide.Enabled = False
-        End Select
+            ' Verifies that contestant is of the proper age group
+            Select Case ageCheck
+                Case <= 6
+                    goodGrade = False
+                Case >= 12
+                    goodGrade = False
+                Case Else
+                    goodGrade = True
+            End Select
 
+            gradeCheck = CInt(GradeBox.Text)
+
+            ' Verifies that contestant is of the proper grade group
+            Select Case gradeCheck
+                Case <= 0
+                    goodGrade = False
+                Case >= 5
+                    goodGrade = False
+                Case Else
+                    goodAge = True
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+
+        Return goodAge And goodGrade
+    End Function
+    Private Sub StudentInfo_Leave(sender As Object, e As EventArgs) Handles StudentInfo.Leave
+
+        'Compares name, grade, and age entry to allow the user to continue
+        If NameBox.Text <> "" And AgeGradeGood() Then
+            Add.Enabled = True
+            Subtract.Enabled = True
+            Multiply.Enabled = True
+            Divide.Enabled = True
+            Submit_Button.Enabled = True
+            Summary_Button.Enabled = True
+            RandomizeQuestions()
+        Else
+            MsgBox("Student not eligible to compete")
+        End If
 
     End Sub
 
     Private Sub Submit_Button_Click(sender As Object, e As EventArgs) Handles Submit_Button.Click
-        Dim correctAnswer As Integer
+        MathOperations()
+    End Sub
+    Sub MathOperations()
+        Dim firstNum As Integer
+        Dim secondNum As Integer
+        Dim correctAnswer As Double
         Dim studentAnswer As Integer
 
+        Try
+            firstNum = CInt(FirstNumTextbox.Text)
+            secondNum = CInt(SecondNumTextbox.Text)
+            studentAnswer = CInt(AnswerTextbox.Text)
 
-        attempts = +1
+            'Performs the math function based on which operator is checked
+            If Add.Checked = True Then
+                correctAnswer = firstNum + secondNum
+            ElseIf Subtract.Checked = True Then
+                correctAnswer = firstNum - secondNum
+            ElseIf Multiply.Checked = True Then
+                correctAnswer = firstNum * secondNum
+            ElseIf Divide.Checked = True Then
+                correctAnswer = firstNum / secondNum
+            End If
+        Catch ex As Exception
 
+        End Try
 
-        If correctAnswer = studentAnswer Then
-            correctAttempts = +1
-
-            MsgBox("Congrats that is the correct answer")
-            AnswerTextbox.ResetText()
-        Else MsgBox("Incorrect. The right answer is" & CStr(correctAnswer))
-            AnswerTextbox.ResetText()
+        'Verfies user answered, and keeps a tally of correct answers to attempts
+        If AnswerTextbox.Text = "" Then
+            MsgBox("Please fill out your answer")
+        ElseIf correctAnswer = studentAnswer Then
+            correctAttempts = correctAttempts + 1
+            MsgBox("Congrats! That is the correct answer")
+            AnswerTextbox.Clear()
+        Else MsgBox("Incorrect. The right answer is: " & CStr(correctAnswer))
+            AnswerTextbox.Clear()
         End If
 
+        attempts = attempts + 1
 
     End Sub
-
     Private Sub Clear_Button_Click(sender As Object, e As EventArgs) Handles Clear_Button.Click
 
-        NameTextBox.Clear()
-        AgeTextbox.Clear()
-        GradeTextbox.Clear()
+        'Resets all data entered
+        NameBox.Clear()
+        AgeBox.Clear()
+        GradeBox.Clear()
         FirstNumTextbox.Clear()
         SecondNumTextbox.Clear()
         AnswerTextbox.Clear()
-        ChecktextBoxes()
-        StudentInfoGroupBox_Leave()
+        Submit_Button.Enabled = False
+        Summary_Button.Enabled = False
         attempts = 0
         correctAttempts = 0
 
-
+        Add.Enabled = True
+        Subtract.Enabled = False
+        Multiply.Enabled = False
+        Divide.Enabled = False
 
     End Sub
 
     Private Sub Summary_Button_Click(sender As Object, e As EventArgs) Handles Summary_Button.Click
 
-        MsgBox("Name: " & NameTextBox.Text & vbNewLine &
-               "Age: " & AgeTextbox.Text & vbNewLine &
-               "Grade: " & GradeTextbox.Text & vbNewLine &
+        'Displays a message box with the values below for the user
+        MsgBox("Name: " & NameBox.Text & vbNewLine &
+               "Age: " & AgeBox.Text & vbNewLine &
+               "Grade: " & GradeBox.Text & vbNewLine &
                "1st Number: " & FirstNumTextbox.Text & vbNewLine &
                "2nd Number: " & SecondNumTextbox.Text & vbNewLine &
-               "Answer: " & AnswerTextbox.Text & vbNewLine &
-               NameTextBox.Text & " got " & correctAttempts & " out of " & attempts & " correct")
+               NameBox.Text & " got " & correctAttempts & " out of " & attempts & " correct")
 
 
     End Sub
-    Private Sub GradeTextbox_TextChanged(sender As Object, e As EventArgs) Handles GradeTextbox.TextChanged
-        If Me.GradeTextbox.Text <> String.Empty Then
-            Submit_Button.Enabled = True
-        Else
-            Submit_Button.Enabled = False
-        End If
-    End Sub
 
-    Private Sub MathValues_Enter(sender As Object, e As EventArgs) Handles FirstNumTextbox.TextChanged,
-        SecondNumTextbox.TextChanged, AnswerTextbox.TextChanged
-        Dim userMessage As String = ""
-        Dim answer As Boolean
-        answer = False
-
-        If AnswerTextbox.Text <> "" Then
-            Try
-                answer = True
-            Catch ex As Exception
-                MsgBox("Please Enter")
-            End Try
-        End If
-        If userMessage <> "" Then
-            MsgBox(userMessage)
-        End If
-    End Sub
-
-    Private Sub MathValues_Enter_1(sender As Object, e As EventArgs) Handles MathValues.Enter
-        RandomizeQuestions()
-    End Sub
     Private Sub Exit_Button_Click(sender As Object, e As EventArgs) Handles Exit_Button.Click
         Me.Close()
     End Sub
