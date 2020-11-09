@@ -8,7 +8,7 @@ Option Strict On
 Option Explicit On
 
 
-Public Class Math_Contest
+Public Class Math_Contest ' PascalCase - TJR
     Dim attempts As Integer
     Dim correctAttempts As Double
 
@@ -110,18 +110,20 @@ Public Class Math_Contest
             ElseIf Divide.Checked = True Then
                 correctAnswer = firstNum / secondNum
             End If
+            'evaluate student answer for correctness here - TJR
         Catch ex As Exception
-
+            'when the student enters text correctAnswer = studentAnswer evaluates TRUE - TJR
+            'see Bug01.PNG - TJR
         End Try
 
         'Verfies user answered, and keeps a tally of correct answers to attempts
         If AnswerTextbox.Text = "" Then
             MsgBox("Please fill out your answer")
-        ElseIf correctAnswer = studentAnswer Then
+        ElseIf correctAnswer = studentAnswer Then ' Move to Try - TJR
             correctAttempts = correctAttempts + 1
             MsgBox("Congrats! That is the correct answer")
             AnswerTextbox.Clear()
-        Else MsgBox("Incorrect. The right answer is: " & CStr(correctAnswer))
+        Else MsgBox("Incorrect. The right answer is: " & CStr(correctAnswer)) ' Move to Try - TJR
             AnswerTextbox.Clear()
         End If
 
