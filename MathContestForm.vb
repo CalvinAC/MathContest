@@ -8,19 +8,19 @@ Option Strict On
 Option Explicit On
 
 
-Public Class Math_Contest
+Public Class MathContest
     Dim attempts As Integer
     Dim correctAttempts As Double
 
     Private Sub Math_Contest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Loads preset conditions
-        Add.Checked = True
-        Submit_Button.Enabled = False
-        Summary_Button.Enabled = False
-        Add.Enabled = False
-        Subtract.Enabled = False
-        Multiply.Enabled = False
-        Divide.Enabled = False
+        AddRadioButton.Checked = True
+        SubmitButton.Enabled = False
+        SummaryButton.Enabled = False
+        AddRadioButton.Enabled = False
+        SubtractRadioButton.Enabled = False
+        MultiplyRadioButton.Enabled = False
+        DivideRadioButton.Enabled = False
 
     End Sub
 
@@ -39,9 +39,21 @@ Public Class Math_Contest
         Dim gradeCheck As Integer
 
         Try
-            ageCheck = CInt(AgeBox.Text)
+            If NameBox.Text = "" Then
+                MsgBox("Name is empty")
+                Exit Function
+            ElseIf AgeBox.Text = "" Then
+                MsgBox("Age is empty")
+                Exit Function
+            ElseIf GradeBox.Text = "" Then
+                MsgBox("Grade is empty")
+                Exit Function
+            Else
+
+            End If
 
             ' Verifies that contestant is of the proper age group
+            ageCheck = CInt(AgeBox.Text)
             Select Case ageCheck
                 Case <= 6
                     goodGrade = False
@@ -51,9 +63,8 @@ Public Class Math_Contest
                     goodGrade = True
             End Select
 
-            gradeCheck = CInt(GradeBox.Text)
-
             ' Verifies that contestant is of the proper grade group
+            gradeCheck = CInt(GradeBox.Text)
             Select Case gradeCheck
                 Case <= 0
                     goodGrade = False
@@ -69,16 +80,16 @@ Public Class Math_Contest
 
         Return goodAge And goodGrade
     End Function
-    Private Sub StudentInfo_Leave(sender As Object, e As EventArgs) Handles StudentInfo.Leave
+    Private Sub StudentInfo_Leave(sender As Object, e As EventArgs) Handles StudentInfoGroupBox.Leave
 
         'Compares name, grade, and age entry to allow the user to continue
         If NameBox.Text <> "" And AgeGradeGood() Then
-            Add.Enabled = True
-            Subtract.Enabled = True
-            Multiply.Enabled = True
-            Divide.Enabled = True
-            Submit_Button.Enabled = True
-            Summary_Button.Enabled = True
+            AddRadioButton.Enabled = True
+            SubtractRadioButton.Enabled = True
+            MultiplyRadioButton.Enabled = True
+            DivideRadioButton.Enabled = True
+            SubmitButton.Enabled = True
+            SummaryButton.Enabled = True
             RandomizeQuestions()
         Else
             MsgBox("Student not eligible to compete")
@@ -86,7 +97,7 @@ Public Class Math_Contest
 
     End Sub
 
-    Private Sub Submit_Button_Click(sender As Object, e As EventArgs) Handles Submit_Button.Click
+    Private Sub Submit_Button_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         MathOperations()
     End Sub
     Sub MathOperations()
@@ -101,34 +112,36 @@ Public Class Math_Contest
             studentAnswer = CInt(AnswerTextbox.Text)
 
             'Performs the math function based on which operator is checked
-            If Add.Checked = True Then
+            If AddRadioButton.Checked = True Then
                 correctAnswer = firstNum + secondNum
-            ElseIf Subtract.Checked = True Then
+            ElseIf SubtractRadioButton.Checked = True Then
                 correctAnswer = firstNum - secondNum
-            ElseIf Multiply.Checked = True Then
+            ElseIf MultiplyRadioButton.Checked = True Then
                 correctAnswer = firstNum * secondNum
-            ElseIf Divide.Checked = True Then
+            ElseIf DivideRadioButton.Checked = True Then
                 correctAnswer = firstNum / secondNum
             End If
+
+            'Verfies user answered, and keeps a tally of correct answers to attempts
+            If AnswerTextbox.Text = "" Then
+                MsgBox("Please fill out your answer")
+            ElseIf correctAnswer = studentAnswer Then
+                correctAttempts = correctAttempts + 1
+                MsgBox("Congrats! That is the correct answer")
+                AnswerTextbox.Clear()
+            Else MsgBox("Incorrect. The right answer is: " & CStr(correctAnswer))
+                AnswerTextbox.Clear()
+            End If
+
         Catch ex As Exception
-
+            MsgBox("The answer must be a numeric value")
+            AnswerTextbox.Clear()
         End Try
-
-        'Verfies user answered, and keeps a tally of correct answers to attempts
-        If AnswerTextbox.Text = "" Then
-            MsgBox("Please fill out your answer")
-        ElseIf correctAnswer = studentAnswer Then
-            correctAttempts = correctAttempts + 1
-            MsgBox("Congrats! That is the correct answer")
-            AnswerTextbox.Clear()
-        Else MsgBox("Incorrect. The right answer is: " & CStr(correctAnswer))
-            AnswerTextbox.Clear()
-        End If
 
         attempts = attempts + 1
 
     End Sub
-    Private Sub Clear_Button_Click(sender As Object, e As EventArgs) Handles Clear_Button.Click
+    Private Sub Clear_Button_Click(sender As Object, e As EventArgs)
 
         'Resets all data entered
         NameBox.Clear()
@@ -137,19 +150,19 @@ Public Class Math_Contest
         FirstNumTextbox.Clear()
         SecondNumTextbox.Clear()
         AnswerTextbox.Clear()
-        Submit_Button.Enabled = False
-        Summary_Button.Enabled = False
+        SubmitButton.Enabled = False
+        SummaryButton.Enabled = False
         attempts = 0
         correctAttempts = 0
 
-        Add.Enabled = True
-        Subtract.Enabled = False
-        Multiply.Enabled = False
-        Divide.Enabled = False
+        AddRadioButton.Enabled = True
+        SubtractRadioButton.Enabled = False
+        MultiplyRadioButton.Enabled = False
+        DivideRadioButton.Enabled = False
 
     End Sub
 
-    Private Sub Summary_Button_Click(sender As Object, e As EventArgs) Handles Summary_Button.Click
+    Private Sub Summary_Button_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
 
         'Displays a message box with the values below for the user
         MsgBox("Name: " & NameBox.Text & vbNewLine &
@@ -162,7 +175,7 @@ Public Class Math_Contest
 
     End Sub
 
-    Private Sub Exit_Button_Click(sender As Object, e As EventArgs) Handles Exit_Button.Click
+    Private Sub Exit_Button_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
 

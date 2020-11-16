@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Math_Contest
+Partial Class MathContest
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,105 +22,97 @@ Partial Class Math_Contest
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Exit_Button = New System.Windows.Forms.Button()
-        Me.Summary_Button = New System.Windows.Forms.Button()
-        Me.Clear_Button = New System.Windows.Forms.Button()
-        Me.Submit_Button = New System.Windows.Forms.Button()
+        Me.components = New System.ComponentModel.Container()
+        Me.ButtonsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.ExitButton = New System.Windows.Forms.Button()
+        Me.SummaryButton = New System.Windows.Forms.Button()
+        Me.SubmitButton = New System.Windows.Forms.Button()
         Me.Grade_Label = New System.Windows.Forms.Label()
         Me.Age_Label = New System.Windows.Forms.Label()
         Me.Name_Label = New System.Windows.Forms.Label()
         Me.GradeTextbox = New System.Windows.Forms.TextBox()
         Me.AgeTextbox = New System.Windows.Forms.TextBox()
         Me.NameTextBox = New System.Windows.Forms.TextBox()
-        Me.MathValues = New System.Windows.Forms.GroupBox()
+        Me.MathValuesGroupBox = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.AnswerTextbox = New System.Windows.Forms.TextBox()
         Me.SecondNumTextbox = New System.Windows.Forms.TextBox()
         Me.FirstNumTextbox = New System.Windows.Forms.TextBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Divide = New System.Windows.Forms.RadioButton()
-        Me.Multiply = New System.Windows.Forms.RadioButton()
-        Me.Subtract = New System.Windows.Forms.RadioButton()
-        Me.Add = New System.Windows.Forms.RadioButton()
-        Me.StudentInfo = New System.Windows.Forms.GroupBox()
+        Me.MathSelectGroupBox = New System.Windows.Forms.GroupBox()
+        Me.DivideRadioButton = New System.Windows.Forms.RadioButton()
+        Me.MultiplyRadioButton = New System.Windows.Forms.RadioButton()
+        Me.SubtractRadioButton = New System.Windows.Forms.RadioButton()
+        Me.AddRadioButton = New System.Windows.Forms.RadioButton()
+        Me.StudentInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NameBox = New System.Windows.Forms.TextBox()
         Me.AgeBox = New System.Windows.Forms.TextBox()
         Me.GradeBox = New System.Windows.Forms.TextBox()
-        Me.GroupBox1.SuspendLayout()
-        Me.MathValues.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.StudentInfo.SuspendLayout()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ClearButton = New System.Windows.Forms.Button()
+        Me.ButtonsGroupBox.SuspendLayout()
+        Me.MathValuesGroupBox.SuspendLayout()
+        Me.MathSelectGroupBox.SuspendLayout()
+        Me.StudentInfoGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'ButtonsGroupBox
         '
-        Me.GroupBox1.Controls.Add(Me.Exit_Button)
-        Me.GroupBox1.Controls.Add(Me.Summary_Button)
-        Me.GroupBox1.Controls.Add(Me.Clear_Button)
-        Me.GroupBox1.Controls.Add(Me.Submit_Button)
-        Me.GroupBox1.Location = New System.Drawing.Point(840, 29)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(314, 479)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
+        Me.ButtonsGroupBox.Controls.Add(Me.ClearButton)
+        Me.ButtonsGroupBox.Controls.Add(Me.ExitButton)
+        Me.ButtonsGroupBox.Controls.Add(Me.SummaryButton)
+        Me.ButtonsGroupBox.Controls.Add(Me.SubmitButton)
+        Me.ButtonsGroupBox.Location = New System.Drawing.Point(840, 29)
+        Me.ButtonsGroupBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonsGroupBox.Name = "ButtonsGroupBox"
+        Me.ButtonsGroupBox.Padding = New System.Windows.Forms.Padding(4)
+        Me.ButtonsGroupBox.Size = New System.Drawing.Size(314, 479)
+        Me.ButtonsGroupBox.TabIndex = 0
+        Me.ButtonsGroupBox.TabStop = False
         '
-        'Exit_Button
+        'ExitButton
         '
-        Me.Exit_Button.BackColor = System.Drawing.Color.Red
-        Me.Exit_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Exit_Button.Location = New System.Drawing.Point(32, 369)
-        Me.Exit_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.Exit_Button.Name = "Exit_Button"
-        Me.Exit_Button.Size = New System.Drawing.Size(262, 104)
-        Me.Exit_Button.TabIndex = 3
-        Me.Exit_Button.Text = "Exit"
-        Me.Exit_Button.UseVisualStyleBackColor = False
+        Me.ExitButton.BackColor = System.Drawing.Color.Red
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ExitButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExitButton.Location = New System.Drawing.Point(32, 369)
+        Me.ExitButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(262, 104)
+        Me.ExitButton.TabIndex = 3
+        Me.ExitButton.Text = "&Exit"
+        Me.ToolTip1.SetToolTip(Me.ExitButton, "Click or hit Esc kay to end program")
+        Me.ExitButton.UseVisualStyleBackColor = False
         '
-        'Summary_Button
+        'SummaryButton
         '
-        Me.Summary_Button.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Summary_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Summary_Button.Location = New System.Drawing.Point(32, 260)
-        Me.Summary_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.Summary_Button.Name = "Summary_Button"
-        Me.Summary_Button.Size = New System.Drawing.Size(262, 104)
-        Me.Summary_Button.TabIndex = 2
-        Me.Summary_Button.Text = "Summary"
-        Me.Summary_Button.UseVisualStyleBackColor = False
+        Me.SummaryButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.SummaryButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SummaryButton.Location = New System.Drawing.Point(32, 260)
+        Me.SummaryButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.SummaryButton.Name = "SummaryButton"
+        Me.SummaryButton.Size = New System.Drawing.Size(262, 104)
+        Me.SummaryButton.TabIndex = 2
+        Me.SummaryButton.Text = "Summary"
+        Me.ToolTip1.SetToolTip(Me.SummaryButton, "Click to see user info and number of correct attempts to attempts")
+        Me.SummaryButton.UseVisualStyleBackColor = False
         '
-        'Clear_Button
+        'SubmitButton
         '
-        Me.Clear_Button.BackColor = System.Drawing.Color.White
-        Me.Clear_Button.Cursor = System.Windows.Forms.Cursors.WaitCursor
-        Me.Clear_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Clear_Button.Location = New System.Drawing.Point(32, 148)
-        Me.Clear_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.Clear_Button.Name = "Clear_Button"
-        Me.Clear_Button.Size = New System.Drawing.Size(262, 104)
-        Me.Clear_Button.TabIndex = 1
-        Me.Clear_Button.Text = "Clear"
-        Me.Clear_Button.UseVisualStyleBackColor = False
-        Me.Clear_Button.UseWaitCursor = True
-        '
-        'Submit_Button
-        '
-        Me.Submit_Button.BackColor = System.Drawing.Color.Lime
-        Me.Submit_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Submit_Button.Location = New System.Drawing.Point(32, 31)
-        Me.Submit_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.Submit_Button.Name = "Submit_Button"
-        Me.Submit_Button.Size = New System.Drawing.Size(262, 113)
-        Me.Submit_Button.TabIndex = 0
-        Me.Submit_Button.Text = "Submit"
-        Me.Submit_Button.UseVisualStyleBackColor = False
+        Me.SubmitButton.BackColor = System.Drawing.Color.Lime
+        Me.SubmitButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.SubmitButton.Location = New System.Drawing.Point(32, 31)
+        Me.SubmitButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.SubmitButton.Name = "SubmitButton"
+        Me.SubmitButton.Size = New System.Drawing.Size(262, 113)
+        Me.SubmitButton.TabIndex = 0
+        Me.SubmitButton.Text = "Submit"
+        Me.ToolTip1.SetToolTip(Me.SubmitButton, "Click to enter answers once you are determined eleigable")
+        Me.SubmitButton.UseVisualStyleBackColor = False
         '
         'Grade_Label
         '
@@ -182,22 +174,24 @@ Partial Class Math_Contest
         Me.NameTextBox.Size = New System.Drawing.Size(162, 18)
         Me.NameTextBox.TabIndex = 0
         '
-        'MathValues
+        'MathValuesGroupBox
         '
-        Me.MathValues.Controls.Add(Me.Label3)
-        Me.MathValues.Controls.Add(Me.Label2)
-        Me.MathValues.Controls.Add(Me.Label1)
-        Me.MathValues.Controls.Add(Me.AnswerTextbox)
-        Me.MathValues.Controls.Add(Me.SecondNumTextbox)
-        Me.MathValues.Controls.Add(Me.FirstNumTextbox)
-        Me.MathValues.Location = New System.Drawing.Point(24, 256)
-        Me.MathValues.Margin = New System.Windows.Forms.Padding(4)
-        Me.MathValues.Name = "MathValues"
-        Me.MathValues.Padding = New System.Windows.Forms.Padding(4)
-        Me.MathValues.Size = New System.Drawing.Size(302, 396)
-        Me.MathValues.TabIndex = 2
-        Me.MathValues.TabStop = False
-        Me.MathValues.Text = "Current Math Problem"
+        Me.MathValuesGroupBox.Controls.Add(Me.Label3)
+        Me.MathValuesGroupBox.Controls.Add(Me.Label2)
+        Me.MathValuesGroupBox.Controls.Add(Me.Label1)
+        Me.MathValuesGroupBox.Controls.Add(Me.AnswerTextbox)
+        Me.MathValuesGroupBox.Controls.Add(Me.SecondNumTextbox)
+        Me.MathValuesGroupBox.Controls.Add(Me.FirstNumTextbox)
+        Me.MathValuesGroupBox.Location = New System.Drawing.Point(24, 256)
+        Me.MathValuesGroupBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.MathValuesGroupBox.Name = "MathValuesGroupBox"
+        Me.MathValuesGroupBox.Padding = New System.Windows.Forms.Padding(4)
+        Me.MathValuesGroupBox.Size = New System.Drawing.Size(302, 396)
+        Me.MathValuesGroupBox.TabIndex = 2
+        Me.MathValuesGroupBox.TabStop = False
+        Me.MathValuesGroupBox.Text = "Current Math Problem"
+        Me.ToolTip1.SetToolTip(Me.MathValuesGroupBox, "Perform the math operation selected for numbers 1 and 2, then submit to see if it" &
+        " is correct")
         '
         'Label3
         '
@@ -259,83 +253,85 @@ Partial Class Math_Contest
         Me.FirstNumTextbox.Size = New System.Drawing.Size(248, 31)
         Me.FirstNumTextbox.TabIndex = 0
         '
-        'GroupBox4
+        'MathSelectGroupBox
         '
-        Me.GroupBox4.Controls.Add(Me.Divide)
-        Me.GroupBox4.Controls.Add(Me.Multiply)
-        Me.GroupBox4.Controls.Add(Me.Subtract)
-        Me.GroupBox4.Controls.Add(Me.Add)
-        Me.GroupBox4.Location = New System.Drawing.Point(424, 256)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(376, 396)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Math Problem Type"
+        Me.MathSelectGroupBox.Controls.Add(Me.DivideRadioButton)
+        Me.MathSelectGroupBox.Controls.Add(Me.MultiplyRadioButton)
+        Me.MathSelectGroupBox.Controls.Add(Me.SubtractRadioButton)
+        Me.MathSelectGroupBox.Controls.Add(Me.AddRadioButton)
+        Me.MathSelectGroupBox.Location = New System.Drawing.Point(424, 256)
+        Me.MathSelectGroupBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.MathSelectGroupBox.Name = "MathSelectGroupBox"
+        Me.MathSelectGroupBox.Padding = New System.Windows.Forms.Padding(4)
+        Me.MathSelectGroupBox.Size = New System.Drawing.Size(376, 396)
+        Me.MathSelectGroupBox.TabIndex = 3
+        Me.MathSelectGroupBox.TabStop = False
+        Me.MathSelectGroupBox.Text = "Math Problem Type"
+        Me.ToolTip1.SetToolTip(Me.MathSelectGroupBox, "Select a math function to perform")
         '
-        'Divide
+        'DivideRadioButton
         '
-        Me.Divide.AutoSize = True
-        Me.Divide.Location = New System.Drawing.Point(30, 279)
-        Me.Divide.Margin = New System.Windows.Forms.Padding(4)
-        Me.Divide.Name = "Divide"
-        Me.Divide.Size = New System.Drawing.Size(103, 29)
-        Me.Divide.TabIndex = 3
-        Me.Divide.TabStop = True
-        Me.Divide.Text = "Divide"
-        Me.Divide.UseVisualStyleBackColor = True
+        Me.DivideRadioButton.AutoSize = True
+        Me.DivideRadioButton.Location = New System.Drawing.Point(30, 279)
+        Me.DivideRadioButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.DivideRadioButton.Name = "DivideRadioButton"
+        Me.DivideRadioButton.Size = New System.Drawing.Size(103, 29)
+        Me.DivideRadioButton.TabIndex = 3
+        Me.DivideRadioButton.TabStop = True
+        Me.DivideRadioButton.Text = "Divide"
+        Me.DivideRadioButton.UseVisualStyleBackColor = True
         '
-        'Multiply
+        'MultiplyRadioButton
         '
-        Me.Multiply.AutoSize = True
-        Me.Multiply.Location = New System.Drawing.Point(30, 202)
-        Me.Multiply.Margin = New System.Windows.Forms.Padding(4)
-        Me.Multiply.Name = "Multiply"
-        Me.Multiply.Size = New System.Drawing.Size(117, 29)
-        Me.Multiply.TabIndex = 2
-        Me.Multiply.TabStop = True
-        Me.Multiply.Text = "Multiply"
-        Me.Multiply.UseVisualStyleBackColor = True
+        Me.MultiplyRadioButton.AutoSize = True
+        Me.MultiplyRadioButton.Location = New System.Drawing.Point(30, 202)
+        Me.MultiplyRadioButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.MultiplyRadioButton.Name = "MultiplyRadioButton"
+        Me.MultiplyRadioButton.Size = New System.Drawing.Size(117, 29)
+        Me.MultiplyRadioButton.TabIndex = 2
+        Me.MultiplyRadioButton.TabStop = True
+        Me.MultiplyRadioButton.Text = "Multiply"
+        Me.MultiplyRadioButton.UseVisualStyleBackColor = True
         '
-        'Subtract
+        'SubtractRadioButton
         '
-        Me.Subtract.AutoSize = True
-        Me.Subtract.Location = New System.Drawing.Point(30, 127)
-        Me.Subtract.Margin = New System.Windows.Forms.Padding(4)
-        Me.Subtract.Name = "Subtract"
-        Me.Subtract.Size = New System.Drawing.Size(123, 29)
-        Me.Subtract.TabIndex = 1
-        Me.Subtract.TabStop = True
-        Me.Subtract.Text = "Subtract"
-        Me.Subtract.UseVisualStyleBackColor = True
+        Me.SubtractRadioButton.AutoSize = True
+        Me.SubtractRadioButton.Location = New System.Drawing.Point(30, 127)
+        Me.SubtractRadioButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.SubtractRadioButton.Name = "SubtractRadioButton"
+        Me.SubtractRadioButton.Size = New System.Drawing.Size(123, 29)
+        Me.SubtractRadioButton.TabIndex = 1
+        Me.SubtractRadioButton.TabStop = True
+        Me.SubtractRadioButton.Text = "Subtract"
+        Me.SubtractRadioButton.UseVisualStyleBackColor = True
         '
-        'Add
+        'AddRadioButton
         '
-        Me.Add.AutoSize = True
-        Me.Add.Location = New System.Drawing.Point(30, 52)
-        Me.Add.Margin = New System.Windows.Forms.Padding(4)
-        Me.Add.Name = "Add"
-        Me.Add.Size = New System.Drawing.Size(81, 29)
-        Me.Add.TabIndex = 0
-        Me.Add.TabStop = True
-        Me.Add.Text = "Add"
-        Me.Add.UseVisualStyleBackColor = True
+        Me.AddRadioButton.AutoSize = True
+        Me.AddRadioButton.Location = New System.Drawing.Point(30, 52)
+        Me.AddRadioButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.AddRadioButton.Name = "AddRadioButton"
+        Me.AddRadioButton.Size = New System.Drawing.Size(81, 29)
+        Me.AddRadioButton.TabIndex = 0
+        Me.AddRadioButton.TabStop = True
+        Me.AddRadioButton.Text = "Add"
+        Me.AddRadioButton.UseVisualStyleBackColor = True
         '
-        'StudentInfo
+        'StudentInfoGroupBox
         '
-        Me.StudentInfo.Controls.Add(Me.Label6)
-        Me.StudentInfo.Controls.Add(Me.Label5)
-        Me.StudentInfo.Controls.Add(Me.Label4)
-        Me.StudentInfo.Controls.Add(Me.NameBox)
-        Me.StudentInfo.Controls.Add(Me.AgeBox)
-        Me.StudentInfo.Controls.Add(Me.GradeBox)
-        Me.StudentInfo.Location = New System.Drawing.Point(24, 29)
-        Me.StudentInfo.Name = "StudentInfo"
-        Me.StudentInfo.Size = New System.Drawing.Size(776, 198)
-        Me.StudentInfo.TabIndex = 4
-        Me.StudentInfo.TabStop = False
-        Me.StudentInfo.Text = "Student Information"
+        Me.StudentInfoGroupBox.Controls.Add(Me.Label6)
+        Me.StudentInfoGroupBox.Controls.Add(Me.Label5)
+        Me.StudentInfoGroupBox.Controls.Add(Me.Label4)
+        Me.StudentInfoGroupBox.Controls.Add(Me.NameBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.AgeBox)
+        Me.StudentInfoGroupBox.Controls.Add(Me.GradeBox)
+        Me.StudentInfoGroupBox.Location = New System.Drawing.Point(24, 29)
+        Me.StudentInfoGroupBox.Name = "StudentInfoGroupBox"
+        Me.StudentInfoGroupBox.Size = New System.Drawing.Size(776, 198)
+        Me.StudentInfoGroupBox.TabIndex = 4
+        Me.StudentInfoGroupBox.TabStop = False
+        Me.StudentInfoGroupBox.Text = "Student Information"
+        Me.ToolTip1.SetToolTip(Me.StudentInfoGroupBox, "Name, age, and grade go here")
         '
         'Label6
         '
@@ -394,42 +390,54 @@ Partial Class Math_Contest
         Me.GradeBox.Size = New System.Drawing.Size(88, 31)
         Me.GradeBox.TabIndex = 6
         '
-        'Math_Contest
+        'ClearButton
         '
+        Me.ClearButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClearButton.Location = New System.Drawing.Point(32, 151)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(262, 100)
+        Me.ClearButton.TabIndex = 5
+        Me.ClearButton.Text = "&Clear"
+        Me.ToolTip1.SetToolTip(Me.ClearButton, "Click to reset the form")
+        Me.ClearButton.UseVisualStyleBackColor = True
+        '
+        'MathContest
+        '
+        Me.AcceptButton = Me.SubmitButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(1204, 704)
-        Me.Controls.Add(Me.StudentInfo)
-        Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.MathValues)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.StudentInfoGroupBox)
+        Me.Controls.Add(Me.MathSelectGroupBox)
+        Me.Controls.Add(Me.MathValuesGroupBox)
+        Me.Controls.Add(Me.ButtonsGroupBox)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Math_Contest"
+        Me.Name = "MathContest"
         Me.Text = "Math Contest"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.MathValues.ResumeLayout(False)
-        Me.MathValues.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.StudentInfo.ResumeLayout(False)
-        Me.StudentInfo.PerformLayout()
+        Me.ButtonsGroupBox.ResumeLayout(False)
+        Me.MathValuesGroupBox.ResumeLayout(False)
+        Me.MathValuesGroupBox.PerformLayout()
+        Me.MathSelectGroupBox.ResumeLayout(False)
+        Me.MathSelectGroupBox.PerformLayout()
+        Me.StudentInfoGroupBox.ResumeLayout(False)
+        Me.StudentInfoGroupBox.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Exit_Button As Button
-    Friend WithEvents Summary_Button As Button
-    Friend WithEvents Clear_Button As Button
-    Friend WithEvents Submit_Button As Button
+    Friend WithEvents ButtonsGroupBox As GroupBox
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents SummaryButton As Button
+    Friend WithEvents SubmitButton As Button
     'Friend WithEvents StudentInfoGroupBox As GroupBox
-    Friend WithEvents MathValues As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Divide As RadioButton
-    Friend WithEvents Multiply As RadioButton
-    Friend WithEvents Subtract As RadioButton
-    Friend WithEvents Add As RadioButton
+    Friend WithEvents MathValuesGroupBox As GroupBox
+    Friend WithEvents MathSelectGroupBox As GroupBox
+    Friend WithEvents DivideRadioButton As RadioButton
+    Friend WithEvents MultiplyRadioButton As RadioButton
+    Friend WithEvents SubtractRadioButton As RadioButton
+    Friend WithEvents AddRadioButton As RadioButton
     Friend WithEvents NameTextBox As TextBox
     Friend WithEvents FirstNumTextbox As TextBox
     Friend WithEvents AnswerTextbox As TextBox
@@ -442,11 +450,13 @@ Partial Class Math_Contest
     Friend WithEvents Grade_Label As Label
     Friend WithEvents Age_Label As Label
     Friend WithEvents Name_Label As Label
-    Friend WithEvents StudentInfo As GroupBox
+    Friend WithEvents StudentInfoGroupBox As GroupBox
     Friend WithEvents NameBox As TextBox
     Friend WithEvents AgeBox As TextBox
     Friend WithEvents GradeBox As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents ClearButton As Button
 End Class
